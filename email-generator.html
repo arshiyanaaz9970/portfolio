@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center; padding:50px;">
+
+<h2>Email Generator</h2>
+
+<input type="text" id="first" placeholder="First Name">
+<input type="text" id="last" placeholder="Last Name">
+<button onclick="generate()">Generate</button>
+
+<p id="result"></p>
+
+<script>
+function generate() {
+    const first = document.getElementById("first").value.toLowerCase();
+    const last = document.getElementById("last").value.toLowerCase();
+    const random = Math.floor(Math.random() * 1000);
+
+    document.getElementById("result").innerText =
+        `${first}.${last}${random}@gmail.com`;
+}
+</script>
+
+</body>
+</html>
