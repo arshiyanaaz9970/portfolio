@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,4 +49,56 @@ function calculateAge() {
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+<title>Advanced Age Calculator</title>
+<style>
+body { font-family: Arial; text-align:center; padding:50px; }
+input, button { padding:10px; margin:10px; }
+.result { font-size:20px; margin-top:20px; }
+</style>
+</head>
+<body>
+
+<h2>Advanced Age Calculator</h2>
+
+<input type="date" id="dob">
+<br>
+<button onclick="calculateAge()">Calculate Age</button>
+
+<div class="result" id="result"></div>
+
+<script>
+function calculateAge() {
+    const dob = new Date(document.getElementById("dob").value);
+    const today = new Date();
+
+    if (!document.getElementById("dob").value) {
+        alert("Please select date");
+        return;
+    }
+
+    let years = today.getFullYear() - dob.getFullYear();
+    let months = today.getMonth() - dob.getMonth();
+    let days = today.getDate() - dob.getDate();
+
+    if (days < 0) {
+        months--;
+        days += 30;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    document.getElementById("result").innerHTML =
+        `You are ${years} Years, ${months} Months, ${days} Days old`;
+}
+</script>
+
+</body>
+>>>>>>> 9d477c7ebfdb71abe1c0e6c4360215994e96f516
 </html>
