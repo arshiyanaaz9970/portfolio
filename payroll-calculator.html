@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payroll Calculator</title>
+<style>
+body { font-family: Arial; text-align:center; padding:40px; }
+input, button { padding:10px; margin:10px; }
+</style>
+</head>
+<body>
+
+<h2>Employee Payroll Calculator</h2>
+
+<input type="text" id="name" placeholder="Employee Name"><br>
+<input type="number" id="salary" placeholder="Monthly Salary"><br>
+<button onclick="calculate()">Calculate</button>
+
+<div id="result"></div>
+
+<script>
+function calculate() {
+    const name = document.getElementById("name").value;
+    const salary = document.getElementById("salary").value;
+
+    if (!name || !salary) {
+        alert("Fill all fields");
+        return;
+    }
+
+    const yearly = salary * 12;
+    const tax = yearly * 0.10;
+    const net = yearly - tax;
+
+    document.getElementById("result").innerHTML = `
+        <h3>Payroll Details</h3>
+        Name: ${name}<br>
+        Yearly Salary: ₹${yearly}<br>
+        Tax (10%): ₹${tax}<br>
+        Net Salary: ₹${net}
+    `;
+}
+</script>
+
+</body>
+</html>
